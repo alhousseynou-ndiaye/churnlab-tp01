@@ -1,0 +1,6 @@
+model,configuration,fit_seconds,accuracy,average_precision,precision,recall,f1,tn,fp,fn,tp
+RandomForest,"RandomForestClassifier(max_depth=10, min_samples_leaf=5, n_estimators=150,
+                       n_jobs=-1, random_state=42)",0.2815,0.7977288857345636,0.6663078917154565,0.656140350877193,0.5,0.56752655538695,937,98,187,187
+LogisticRegression,"LogisticRegression(max_iter=1000, random_state=42)",0.0441,0.8041163946061036,0.6474664703085159,0.6644295302013423,0.5294117647058824,0.5892857142857143,935,100,176,198
+DecisionTree,"DecisionTreeClassifier(max_depth=5, min_samples_leaf=20, random_state=42)",0.0223,0.8026969481902059,0.6173000162034762,0.635593220338983,0.6016042780748663,0.6181318681318682,906,129,149,225
+DummyClassifier,DummyClassifier(strategy='most_frequent'),0.015,0.7345635202271115,0.2654364797728886,0.0,0.0,0.0,1035,0,374,0

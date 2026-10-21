@@ -1,0 +1,68 @@
+{
+  "model": "RandomForest",
+  "artifact": "artifacts/tp02/churn_pipeline.joblib",
+  "selection_metric": "average_precision",
+  "positive_class": "Yes",
+  "positive_label": 1,
+  "threshold": 0.5,
+  "split_seed": 42,
+  "split_counts": {
+    "train": 4225,
+    "validation": 1409,
+    "test": 1409
+  },
+  "split_allocations": "reports/tp02_split_allocations.csv",
+  "numeric_features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges"
+  ],
+  "categorical_features": [
+    "Contract",
+    "InternetService",
+    "PaymentMethod"
+  ],
+  "numeric_imputation": "median",
+  "numeric_scaling": "StandardScaler",
+  "categorical_imputation": "most_frequent",
+  "categorical_encoding": "OneHotEncoder(handle_unknown='ignore')",
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": 10,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 150,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "validation_metrics": {
+    "accuracy": 0.7977288857345636,
+    "average_precision": 0.6663078917154565,
+    "precision": 0.656140350877193,
+    "recall": 0.5,
+    "f1": 0.56752655538695
+  },
+  "source_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "code_sha256": {
+    "scripts/compare_models.py": "d9e987f542c7737edea5738a0b825c1deb53686922d721fa2cc5d761a8f5cb1f",
+    "src/churnlab/features.py": "5825dbab15d5fb2bf2cbbd456d3bdc7b76285f8deb82dcd8d967a36fdfe298f8",
+    "src/churnlab/training.py": "79120111c36b0a784ea61e691fa5f11da44790b2ded6c420cf2a8375d47102b6"
+  },
+  "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+  "pandas": "3.0.6",
+  "numpy": "2.5.4",
+  "scikit_learn": "1.9.1",
+  "joblib": "1.6.0"
+}
