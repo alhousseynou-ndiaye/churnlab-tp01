@@ -1,0 +1,39 @@
+{
+  "source_file": "data/raw/telco.csv",
+  "sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "rows": 7043,
+  "columns": 21,
+  "target_counts": {
+    "No": 5174,
+    "Yes": 1869
+  },
+  "target_rates": {
+    "No": 0.7346301292063041,
+    "Yes": 0.2653698707936959
+  },
+  "duplicate_customer_ids": 0,
+  "blank_total_charges": 11,
+  "dtypes": {
+    "customerID": "str",
+    "gender": "str",
+    "SeniorCitizen": "int64",
+    "Partner": "str",
+    "Dependents": "str",
+    "tenure": "int64",
+    "PhoneService": "str",
+    "MultipleLines": "str",
+    "InternetService": "str",
+    "OnlineSecurity": "str",
+    "OnlineBackup": "str",
+    "DeviceProtection": "str",
+    "TechSupport": "str",
+    "StreamingTV": "str",
+    "StreamingMovies": "str",
+    "Contract": "str",
+    "PaperlessBilling": "str",
+    "PaymentMethod": "str",
+    "MonthlyCharges": "float64",
+    "TotalCharges": "str",
+    "Churn": "str"
+  }
+}
