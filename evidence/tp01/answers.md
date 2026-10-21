@@ -31,3 +31,44 @@ We can compare the dataset source URL, the Git commit and the SHA-256 hash. If t
 | Environment        | environment-before.json and environment.json | Not all system and hardware details are captured      |
 | Source data        | Source URL and SHA-256                       | The hash does not guarantee data quality              |
 | Trained model      | Not available in TP01                        | Model training and tracking will be implemented later |
+
+## Part E - Git Collaboration
+
+Initial commit: `427b5d2`
+
+Documentation commit: `fc9e261`
+
+Pull Request:
+https://github.com/alhousseynou-ndiaye/churnlab-tp01/pull/1
+
+The README was updated in the docs/telco-onboarding branch.
+
+The pull request contains the environment setup instructions, dataset provenance, SHA-256 verification and project structure.
+
+The project was completed individually. The pull request was created successfully, but peer review is still pending.
+
+## Part F - Git Recovery
+
+### F1 - Discard an unstaged change
+
+I added a temporary sentence to README.md and checked the changes using git diff.
+
+I then used git restore README.md to discard the modification.
+
+The working tree was clean after restoration.
+
+### F2 - Unstage without deleting the change
+
+I added another temporary sentence and staged the file using git add.
+
+I used git restore --staged README.md to remove the change from the staging area.
+
+The modification remained in the working directory.
+
+Finally, I used git restore README.md to discard the temporary change and switched back to main.
+
+### Difference
+
+git restore README.md discards unstaged changes.
+
+git restore --staged README.md removes changes from staging without deleting them from the working directory.
