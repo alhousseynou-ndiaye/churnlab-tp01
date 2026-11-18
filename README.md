@@ -295,3 +295,50 @@ tracking server must be provided.
 
 See `reports/tp03_summary.md` for experiment results,
 screenshots, selected model details and recovery evidence.
+
+## TP04 — Testing and Code Quality
+
+### Install dependencies
+
+```powershell
+uv sync
+```
+
+### Run tests
+
+```powershell
+uv run pytest -q
+```
+
+### Run Ruff
+
+```powershell
+uv run ruff check src/churnlab tests
+uv run ruff format --check src/churnlab tests
+```
+
+### Measure coverage
+
+```powershell
+uv run pytest --cov=churnlab --cov-report=term-missing --cov-report=xml:coverage.xml
+```
+
+### Install Git hooks
+
+```powershell
+uv run pre-commit install
+uv run pre-commit run --all-files
+```
+
+The hooks run Ruff checks before commits.
+They are scoped to the project package and tests.
+
+### Results
+
+- 10 passing tests
+- 67% statement coverage
+- Ruff lint and formatting checks passing
+- Pre-commit hooks operational
+
+See `reports/tp04_summary.md` for the evidence and
+quality-control discussion.

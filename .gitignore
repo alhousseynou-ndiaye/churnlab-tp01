@@ -25,3 +25,9 @@ mlflow.db
 mlflow.db-*
 mlartifacts/
 mlruns/
+
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/

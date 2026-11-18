@@ -1,10 +1,8 @@
-
 import hashlib
 from pathlib import Path
 from time import perf_counter
 
 import pandas as pd
-
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import (
@@ -20,9 +18,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from churnlab.features import (
-    numeric_features,
     categorical_features,
     features,
+    numeric_features,
 )
 
 EXPECTED_SHA256 = "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91"
@@ -72,28 +70,39 @@ def split_dataset(df, seed=42):
 
 
 def build_pipeline(classifier):
-    numeric_pipeline = Pipeline([
-        ("imputer", SimpleImputer(strategy="median")),
-        ("scaler", StandardScaler()),
-    ])
+    numeric_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
+        ]
+    )
 
-    categorical_pipeline = Pipeline([
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("encoder", OneHotEncoder(
-            handle_unknown="ignore",
-            sparse_output=False,
-        )),
-    ])
+    categorical_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            (
+                "encoder",
+                OneHotEncoder(
+                    handle_unknown="ignore",
+                    sparse_output=False,
+                ),
+            ),
+        ]
+    )
 
-    preprocessor = ColumnTransformer([
-        ("num", numeric_pipeline, numeric_features),
-        ("cat", categorical_pipeline, categorical_features),
-    ])
+    preprocessor = ColumnTransformer(
+        [
+            ("num", numeric_pipeline, numeric_features),
+            ("cat", categorical_pipeline, categorical_features),
+        ]
+    )
 
-    return Pipeline([
-        ("preprocessor", preprocessor),
-        ("classifier", classifier),
-    ])
+    return Pipeline(
+        [
+            ("preprocessor", preprocessor),
+            ("classifier", classifier),
+        ]
+    )
 
 
 def train_model(classifier, X_train, y_train):

@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 
@@ -19,16 +18,14 @@ def prepare_features(frame):
         values = X[column].astype("string").str.strip()
         values = values.mask(values.eq(""))
 
-        X[column] = pd.to_numeric(
-            values, errors="raise"
-        ).to_numpy(dtype="float64", na_value=np.nan)
+        X[column] = pd.to_numeric(values, errors="raise").to_numpy(
+            dtype="float64", na_value=np.nan
+        )
 
     for column in categorical_features:
         values = X[column].astype("string").str.strip()
         values = values.mask(values.eq(""))
 
-        X[column] = values.to_numpy(
-            dtype=object, na_value=np.nan
-        )
+        X[column] = values.to_numpy(dtype=object, na_value=np.nan)
 
     return X
