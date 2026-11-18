@@ -20,3 +20,8 @@ reports/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
+
+mlflow.db
+mlflow.db-*
+mlartifacts/
+mlruns/

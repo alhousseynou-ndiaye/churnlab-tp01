@@ -1,0 +1,12 @@
+{
+  "model_uri": "models:/telco-churn@candidate",
+  "registered_version": "1",
+  "alias": "candidate",
+  "samples_checked": 5,
+  "probabilities_match": true,
+  "class_predictions_match": true,
+  "maximum_absolute_difference": 1.1102230246251565e-16,
+  "model_retrained": false,
+  "new_customer_prediction": 0,
+  "new_customer_probability": 0.3009813957352123
+}

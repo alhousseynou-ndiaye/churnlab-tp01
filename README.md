@@ -244,4 +244,54 @@ Handling unseen categories does not guarantee reliable predictions for those cat
 Training duration measurements are descriptive and depend on the execution environment.
 
 
+## TP03 — MLflow Tracking and Model Recovery
 
+### Start MLflow
+
+From the project root:
+
+```powershell
+uv sync
+uv run mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///mlflow.db --artifacts-destination ./mlartifacts
+```
+
+Open http://127.0.0.1:5000.
+
+### Run tracked experiments
+
+In a second terminal:
+
+```powershell
+uv run python scripts/track_tp03.py
+```
+
+Experiment: `telco-churn-tp03`
+
+The script compares three classifiers using validation
+Average Precision and logs their fitted pipelines.
+
+### Load the selected model
+
+```powershell
+uv run python scripts/predict_tp03.py
+```
+
+Registered model: `telco-churn`
+Alias: `candidate`
+Model URI: `models:/telco-churn@candidate`
+
+This command loads the registered pipeline without fitting
+it again and verifies prediction agreement against TP02.
+
+### Local storage
+
+- `mlflow.db`: experiment and registry metadata
+- `mlartifacts/`: logged model and artifact files
+
+These files are not stored in Git. To reproduce the local
+MLflow state elsewhere, the database and artifact files
+must be made accessible separately, or a shared MLflow
+tracking server must be provided.
+
+See `reports/tp03_summary.md` for experiment results,
+screenshots, selected model details and recovery evidence.
